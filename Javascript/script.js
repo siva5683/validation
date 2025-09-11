@@ -3,10 +3,13 @@ var userNameMsg = document.getElementById('username-msg');
 var password = document.getElementById('password');
 var passwordMsg = document.getElementById('password-msg');
 userName.addEventListener('input', function (e) {
-    var regex = /^[A-Za-z0-9]{8}$/;  
+    var regex = /^[A-Z][A-Za-z0-9]{8}$/;  
     var res = regex.test(e.target.value);
 
-    if (res) {
+      if (e.target.value === "") {
+        userNameMsg.textContent = "";   
+        userNameMsg.className = "";
+      } else if (res) {
         userNameMsg.textContent = "Valid Username";
         userNameMsg.className = "valid";
     } else {
